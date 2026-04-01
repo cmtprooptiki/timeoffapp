@@ -20,7 +20,8 @@
 		}
 	},
 	"ga_analytics_on": false,
-	"crypto_secret": "!2~'HswpPPLa22+=tSsdq qwe, appp qwwokDF ",
+	"crypto_secret" : "!2~`HswpPPLa22+=±§sdq qwe,appp qwwokDF_",
+
 	"application_domain": "https://timeoff.cmtprooptiki.gr",
 	"promotion_website_domain": "https://cmtprooptiki.gr",
 	"locale_code_for_sorting": "en",
