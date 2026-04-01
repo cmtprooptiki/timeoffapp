@@ -1,0 +1,11 @@
+Νέα άδεια προστέθηκε και εγκρίθηκε αυτόματα.
+=====
+<p>Γεια σου <strong>{{#with approver }}{{this.full_name}}{{/with}}</strong>,</p>
+
+<p>Ο/Η <strong>{{#with requester}}{{this.full_name}}{{/with}}</strong> πρόσθεσε νέα άδεια <strong>{{>leave_request_detail leave=leave }}</strong>.</p>
+
+{{> email/leave_comments comments=comments }}
+
+<p>Δεν χρειάζεται να εγκρίνετε/απορρίψετε άδειες από τον/την {{#with requester}}{{this.full_name}}{{/with}}.</p>
+
+<p>Ευχαριστούμε</p>

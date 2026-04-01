@@ -1,0 +1,78 @@
+{{!
+
+  This sub template renders Employee's allowance breakdown.
+
+  It relies on following entries in context:
+
+    * user_allowance - an object representing current employee's allowance
+
+}}
+
+<dl>
+  <dt>Ανάλυση επιδόματος
+    <i class="fa fa-question-circle"
+      data-content="Εξήγηση για το πώς υπολογίζεται το συνολικό επίδομα. Τοποθετήστε τον κέρσορα σε κάθε αριθμό για λεπτομέρειες."
+      data-placement="top"
+      data-toggle="popover"
+      data-trigger="focus hover"
+    ></i>
+  </dt>
+    <dd>
+      <em>Σύνολο Αδειών </em>
+      <span class="pull-right"
+        data-content="Επίδομα που προκύπτει από το τμήμα στο οποίο ανήκει ο υπάλληλος."
+        data-placement="top"
+        data-toggle="popover"
+        data-trigger="focus hover"
+        id='nominalAllowancePart'
+      >{{ user_allowance.nominal_allowance }}</span>
+    </dd>
+    <dd>
+      <em>Μεταφέρθηκε από {{#if previous_year}}{{previous_year}}{{else}}προηγούμενο έτος{{/if}}</em>
+      <span class="pull-right"
+        data-content="Επίδομα που μεταφέρθηκε από το προηγούμενο έτος. Σημείωση: το ποσό υπολογίζεται την πρώτη μέρα του έτους."
+        data-placement="top"
+        data-toggle="popover"
+        data-trigger="focus hover"
+        id="allowanceCarriedOverPart"
+      >{{ user_allowance.carry_over }}</span>
+    </dd>
+    <dd>
+      <em>Ατομική προσαρμογή</em>
+      <span class="pull-right"
+        data-content="Προσαρμογή επιδόματος από διαχειριστή."
+        data-placement="top"
+        data-toggle="popover"
+        data-trigger="focus hover"
+      >{{ user_allowance.manual_adjustment }}</span>
+    </dd>
+    <dd>
+      <em>Έναρξη/λήξη εργασίας</em>
+      <span class="pull-right"
+        data-content="Αυτόματη προσαρμογή επιδόματος βάσει ημερομηνίας έναρξης και λήξης εργασίας."
+        data-placement="top"
+        data-toggle="popover"
+        data-trigger="focus hover"
+      >{{ user_allowance.employement_range_adjustment }}</span>
+    </dd>
+    <dd>
+      <em>Χρησιμοποιήθηκαν</em>
+      <span class="pull-right"
+        data-content="Αριθμός ημερών που έχουν ήδη ληφθεί από το επίδομα."
+        data-placement="top"
+        data-toggle="popover"
+        data-trigger="focus hover"
+      >{{#if_equal user_allowance.number_of_days_taken_from_allowance 0}}{{else}}-{{/if_equal}}{{ user_allowance.number_of_days_taken_from_allowance}}</span>
+    </dd>
+    {{# if user_allowance.is_accrued_allowance }}
+      <dd>
+        <em>Δεσμευμένες μέχρι τώρα</em>
+        <span class="pull-right"
+          data-content="Αριθμός μη διαθέσιμων ημερών λόγω σταδιακής φύσης του δικαιώματος αδείας."
+          data-placement="top"
+          data-toggle="popover"
+          data-trigger="focus hover"
+        >{{ user_allowance.accrued_adjustment }}</span>
+      </dd>
+    {{/ if}}
+</dl>

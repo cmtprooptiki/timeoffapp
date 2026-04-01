@@ -1,0 +1,47 @@
+
+{{> show_flash_messages }}
+
+<div class="login-card-wrap">
+  <div class="login-card">
+
+    <div class="login-card-header">
+      <img src="/img/cmt-logo.png" alt="CMT Prooptiki" class="login-logo">
+      <p class="login-subtitle">Σύνδεση στο σύστημα διαχείρισης αδειών</p>
+    </div>
+
+    <form action="/login" method="post" class="login-form">
+
+      <div class="login-field">
+        <label for="email_inp">Email υπαλλήλου</label>
+        <div class="login-input-wrap">
+          <i class="fa fa-envelope login-input-icon"></i>
+          <input class="login-input" id="email_inp" type="text" name="username" required placeholder="yourname@company.com">
+        </div>
+      </div>
+
+      <div class="login-field">
+        <label for="pass_inp">Κωδικός</label>
+        <div class="login-input-wrap">
+          <i class="fa fa-lock login-input-icon"></i>
+          <input class="login-input" id="pass_inp" type="password" name="password" required placeholder="••••••••">
+        </div>
+      </div>
+
+      <button type="submit" class="btn-login single-click" id="submit_login">
+        <i class="fa fa-sign-in"></i>&nbsp; Σύνδεση
+      </button>
+
+      <div class="login-links">
+        <a href="/forgot-password/">Ξεχάσατε τον κωδικό;</a>
+        {{#if allow_create_new_accounts }}
+        <a href="/register/">Εγγραφή νέας εταιρείας</a>
+        {{/if}}
+      </div>
+
+    </form>
+  </div>
+</div>
+
+<footer class="footer custom-footer">
+  <p><span class="pull-left">© CMT Prooptiki 2025</span></p>
+</footer>

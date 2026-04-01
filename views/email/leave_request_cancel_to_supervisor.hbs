@@ -1,0 +1,11 @@
+Ακύρωση αιτήματος άδειας
+=====
+<p>Γεια {{#with approver }}{{this.full_name}}{{/with}},</p>
+
+<p>Ο/Η <strong>{{#with requester}}{{this.full_name}}{{/with}} ακύρωσε</strong> το αίτημα άδειας <strong>{{>leave_request_detail leave=leave }}</strong>.</p>
+
+{{> email/leave_comments comments=comments }}
+
+<p>Δεν απαιτείται καμία ενέργεια.</p>
+
+<p>Ευχαριστούμε</p>

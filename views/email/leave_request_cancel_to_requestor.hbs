@@ -1,0 +1,9 @@
+Το αίτημα άδειας ακυρώθηκε
+=====
+<p>Γεια σου <strong>{{#with requester}}{{this.full_name}}{{/with}}</strong>,</p>
+
+<p>Το αίτημα άδειάς σας <strong>{{>leave_request_detail leave=leave }}</strong> <strong>ακυρώθηκε</strong>.</p>
+
+{{> email/leave_comments comments=comments }}
+
+<p>Ευχαριστούμε</p>

@@ -1,0 +1,13 @@
+Νέο αίτημα άδειας
+=====
+<p>Γεια σου <strong>{{#with approver }}{{this.full_name}}{{/with}}</strong>,</p>
+
+<p>Ο/Η <strong>{{#with requester}}{{this.full_name}}{{/with}}</strong> υπέβαλε νέο αίτημα άδειας <strong>{{>leave_request_detail leave=leave }}</strong>.</p>
+
+{{> email/leave_comments comments=comments }}
+
+{{> email/requester_allowance requester=requester requesterAllowance=requesterAllowance}}
+
+<p>Επισκεφθείτε τη σελίδα {{> email/link href=(concatenate (get_application_domain) '/requests/' ) text='Εκκρεμή αιτήματα'}} για να εγκρίνετε ή να απορρίψετε αιτήματα.</p>
+
+<p>Ευχαριστούμε</p>

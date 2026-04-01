@@ -1,0 +1,29 @@
+{
+"allow create new accounts": true,
+"send emails": true
+"application sender email": "cmtproop@gmail.com",
+"email transporter": {
+"host": "smtp.gmail.com",
+"port": 465,
+"secure": true,
+"ignoreTLS": false
+"auth": {
+	"user": "cmtproop@gmail.com",
+	"pass": "rgsq ybkn eedh ckrm"
+	}
+},
+"sessionStore": {
+"useRedis": false,
+"redisConnectionConfiguration": {
+"host": "localhost",
+"port": 6379
+}
+},
+"ga analytics on": false,
+"crypto secret": "!2~'HswpPPLa22+=tSsdq qwe, appp qwwokDF ",
+"application domain": "https://timeoff.cmtprooptiki.gr",
+"promotion_website domain": "https://cmtprooptiki.gr",
+"locale_code_for_sorting": "en",
+"force_to_explicitly_select_type_when_requesting_new_leave": false
+
+}

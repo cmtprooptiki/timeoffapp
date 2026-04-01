@@ -1,0 +1,17 @@
+Νέος λογαριασμός TimeOff.Management για {{#with new_user }}{{this.full_name}}{{/with}}
+=====
+<p>Γεια σου <strong>{{new_user.name}}</strong>,</p>
+
+<p>Ο/Η <strong>{{#with admin_user}}{{this.full_name}}{{/with}}</strong> μόλις δημιούργησε νέο λογαριασμό για εσάς ως υπάλληλο της <strong>{{company.name}}</strong>.</p>
+
+<p>Επικοινωνήστε με τον/την <strong>{{admin_user.name}}</strong> για τον νέο κωδικό σας και σύνδεση στο {{> email/link href=(get_application_domain) text="TimeOff.Management" }}</p>
+
+<p>Εναλλακτικά, ακολουθήστε τον παρακάτω σύνδεσμο για να ορίσετε νέο κωδικό:
+
+{{# with new_user ~}}
+{{> email/link href=(concatenate (get_application_domain) '/reset-password/?t=' (this.get_reset_password_token)) text='Ορισμός νέου κωδικού'}}
+{{/ with }}
+
+</p>
+
+<p>Ευχαριστούμε</p>

@@ -1,0 +1,11 @@
+Το αίτημα άδειας αναμένει απόφαση
+=====
+<p>Γεια σου <strong>{{#with requester}}{{this.full_name}}{{/with}}</strong>,</p>
+
+<p>Η <strong>ακύρωση του αιτήματος άδειας {{>leave_request_detail leave=leave }}</strong> σας εστάλη στον/στην <strong>{{#with approver }}{{this.full_name}}{{/with}}</strong>.</p>
+
+{{> email/leave_comments comments=comments }}
+
+<p>Θα λάβετε νέο email μόλις ληφθεί απόφαση.</p>
+
+<p>Ευχαριστούμε</p>

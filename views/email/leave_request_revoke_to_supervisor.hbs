@@ -1,0 +1,11 @@
+Ανάκληση αιτήματος άδειας
+=====
+<p>Γεια {{#with approver }}{{this.full_name}}{{/with}},</p>
+
+<p>Ο/Η <strong>{{#with requester}}{{this.full_name}}{{/with}} ακύρωσε</strong> το αίτημα άδειας <strong>{{>leave_request_detail leave=leave }}</strong>.</p>
+
+{{> email/leave_comments comments=comments }}
+
+<p>Επισκεφθείτε τη σελίδα {{> email/link href=(concatenate (get_application_domain) '/requests/') text='Εκκρεμή αιτήματα' }} για να εγκρίνετε ή να απορρίψετε εκκρεμή αιτήματα.</p>
+
+<p>Ευχαριστούμε</p>

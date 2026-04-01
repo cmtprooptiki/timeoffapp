@@ -1,0 +1,148 @@
+
+{{> header }}
+
+<h1>Ημερολόγιο υπαλλήλου</h1>
+
+<div class="row">
+    <div class="col-md-6 lead">{{logged_user.name}} {{logged_user.lastname}}'s calendar for {{current_year}}</div>
+    <div class="col-md-6">
+    </div>
+</div>
+
+{{> show_flash_messages }}
+
+<div class="row">&nbsp;</div>
+
+<div class="row main-row_header hidden-xs">
+  <div class="col-md-12">Στατιστικά</div>
+</div>
+
+<div class="row stats-cards-row">
+
+  <div class="col-md-3 top-leave-type-statistics">
+    <dl>
+      {{#with current_user }}
+      <dt data-tom-days-available-in-allowance>{{ ../user_allowance.number_of_days_available_in_allowance }}</dt>
+      <dd>Διαθέσιμες ημέρες</dd>
+      <dd>από <span data-tom-total-days-in-allowance>{{ ../user_allowance.total_number_of_days_in_allowance }}</span> στο Σύνολο</dd>
+      {{/with}}
+    </dl>
+  </div>
+
+  <div class="col-md-3 secondary-leave-type-statistics hidden-xs">
+    {{> user_details/allowance_breakdown user_allowance = user_allowance }}
+  </div>
+
+  <div class="col-md-3 secondary-leave-type-statistics hidden-xs">
+    <dl>
+      <dt>Χρησιμοποιήθηκαν</dt>
+
+      {{# if leave_type_statistics }}
+        {{# each leave_type_statistics }}
+          <dd><em>{{this.leave_type.name}}:</em> <span class="pull-right">{{this.days_taken}}{{# if this.limit}} από {{this.limit}}{{/if}}</span></dd>
+        {{/each}}
+      {{else}}
+
+        <dd class="text-muted">Δεν υπάρχουν εγκεκριμένα αιτήματα ακόμη.</dd>
+      {{/if}}
+    </dl>
+  </div>
+
+  <div class="col-md-3 secondary-leave-type-statistics hidden-xs">
+    <dl>
+      <dt>Λεπτομέρειες</dt>
+      {{~# each supervisors  ~}}
+      <dd>
+        <em>{{# if  @first }} Επόπτης: {{ else   }}  &nbsp;   {{/ if  }}</em>
+        <span class="pull-right"><a href="mailto:{{this.email}}">{{ this.full_name }}</a></span>
+      </dd>
+      {{~/ each ~}}
+      <dd><em>Τμήμα:</em> <span class="pull-right"><a href="/calendar/teamview/?department={{ current_user.department.id }}">{{ current_user.department.name }}</a></span></dd>
+      <dd><em>Επίδομα σε {{current_year}}:</em><span class="pull-right"> {{ user_allowance.total_number_of_days_in_allowance }} ημέρες</span><dd>
+    </dl>
+  </div>
+
+</div>
+
+<div class="row">
+</div>
+
+
+<div class="row main-row_header">
+  <div class="col-md-12">Ημερολόγιο <a href="/calendar/feeds/" data-toggle="tooltip" data-placement="right" title="Εξαγωγή απουσιών σε εξωτερικά ημερολόγια"><span class="fa fa-rss"></span></a></div>
+</div>
+
+<div class="row">
+  <div class="col-xs-2">
+    {{#if show_full_year}}
+    <a class="btn btn-default" href="/calendar/?year={{previous_year}}{{#if show_full_year}}&show_full_year=1{{/if}}"><span aria-hidden="true" class="fa fa-chevron-left"></span> {{previous_year}} </a>
+    {{/if}}
+  </div>
+  <div class="col-xs-8 calendar-section-caption">
+
+    <strong>{{#if show_full_year}}Ιανουάριος - Δεκέμβριος {{current_year}}{{else}}Επόμενοι Μήνες{{/if}}</strong>
+    &nbsp;
+
+    {{# unless show_full_year}}
+    <a class="btn btn-default" href="/calendar/?show_full_year=1">Περισσότερα... &nbsp;<span class="fa fa-plus"></span></a>
+    {{else}}
+    <a class="btn btn-default" href="/calendar/">Λιγότερα... &nbsp;<span class="fa fa-minus"></span></a>
+    {{/unless}}
+
+
+  </div>
+  <div class="col-xs-2">
+    {{#if show_full_year}}
+    <a class="btn btn-default pull-right" href="/calendar/?year={{next_year}}{{#if show_full_year}}&show_full_year=1{{/if}}">{{next_year}} <span aria-hidden="true" class="fa fa-chevron-right"></span></a>
+    {{/if}}
+  </div>
+</div>
+
+<div class="row">&nbsp;</div>
+
+<div class="row clearfix">
+
+    {{# each calendar}}
+    <div class="col-md-3 month_container">
+        <table class="calendar_month month_{{ this.month }}">
+        <thead>
+        <tr>
+            <td colspan="14">{{#if ../show_full_year}}{{this.month}}{{else}}{{as_date_formatted this.moment 'MMMM, YYYY'}}{{/if}}</td>
+        </tr>
+        <tr>
+            <td colspan="2">M</td>
+            <td colspan="2">T</td>
+            <td colspan="2">W</td>
+            <td colspan="2">T</td>
+            <td colspan="2">F</td>
+            <td colspan="2">S</td>
+            <td colspan="2">S</td>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each this.weeks }}
+        <tr>
+            {{#each this}}
+              {{> calendar_cell day = this}}
+            {{/each}}
+        </tr>
+        {{/each}}
+
+        </tbody></table>
+    </div>
+    {{/each}}
+
+</div>
+
+{{# unless show_full_year}}
+
+  <div class="row main-row_header">
+    <p class="col-md-12">Όλες μου οι απουσίες σε {{current_year}}</p>
+  </div>
+
+  {{> user_requests leaves=current_user.my_leaves }}
+
+{{/unless}}
+
+
+{{> footer }}

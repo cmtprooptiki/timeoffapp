@@ -1,0 +1,93 @@
+<div class="header">
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Εναλλαγή πλοήγησης</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand navbar-brand-logo" href="{{url_to_the_site_root}}">
+        <img src="/img/cmt-logo.png" alt="CMT Prooptiki" class="navbar-logo">
+      </a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-left">
+        {{# if logged_user }}
+          <li><a href="/calendar/">Ημερολόγιο</a></li>
+          {{# unless keep_team_view_hidden }}
+            <li><a href="/calendar/teamview/">Προβολή Ομάδας</a></li>
+          {{/ unless }}
+          {{# if logged_user.admin }}
+            <li class="hidden-xs"><a href="/users/">Υπάλληλοι</a></li>
+          {{/if}}
+          <li class="navbar-form navbar-left">
+            <div class="form-group">
+              <button type="button" class="btn btn-info" data-toggle="modal" data-target="#book_leave_modal" id="book_time_off_btn">Νέα απουσία</button>
+            </div>
+          </li>
+        {{/if}}
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          {{#if logged_user }}
+            <li class="dropdown" id="header-notification-dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                <span class="fa fa-bell-o"></span>
+                <span class="label label-info notification-badge hidden"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li class="dropdown-header">Δεν υπάρχουν ειδοποιήσεις</li>
+              </ul>
+            </li>
+            {{#if logged_user.admin }}
+            <li class="dropdown hidden-xs">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="fa fa-gears"></span> <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="/settings/general/">Γενικά</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="/settings/departments/">Τμήματα</a></li>
+                <li><a href="/settings/bankholidays/">Αργίες</a></li>
+                <li><a href="/settings/company/authentication/">Ρύθμιση LDAP</a></li>
+                <li><a href="/settings/company/integration-api/">Ρύθμιση API</a></li>
+                <li><a href="/users/import/">Εισαγωγή υπαλλήλων</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="/audit/email/">Έλεγχος email</a></li>
+                <li><a href="/reports/">Αναφορές</a></li>
+              </ul>
+            </li>
+            {{/if}}
+            <li class="visible-xs-block"><a href="/requests/">Αιτήματα</a></li>
+            <li class="visible-xs-block"><a href="/logout/">Αποσύνδεση</a></li>
+            <li class="dropdown hidden-xs">
+              <a id="me_menu" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Εγώ <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="/requests/">Αιτήματα</a></li>
+                <li class="hidden-xs"><a href="/calendar/feeds/">Ροές</a></li>
+                <li role="separator" class="divider hidden-xs"></li>
+                <li><a href="/logout/">Αποσύνδεση</a></li>
+              </ul>
+            </li>
+          {{else}}
+            <li><a href="/login/">Σύνδεση</a></li>
+          {{/if}}
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+{{# if logged_user }}
+  {{# if logged_user.company.company_wide_message  }}
+    <div class="alert alert-danger" role="alert">{{ logged_user.company.company_wide_message }}</div>
+  {{/if}}
+{{/if}}
+
+</div>
+
+
