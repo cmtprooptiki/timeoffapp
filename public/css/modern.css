@@ -87,7 +87,7 @@ body {
 .bg-anim {
   position: fixed;
   inset: 0;
-  z-index: 0;
+  z-index: -1;
   pointer-events: none;
   overflow: hidden;
 }
@@ -146,12 +146,6 @@ body {
   background: radial-gradient(circle, rgba(50,180,255,0.40) 0%, rgba(50,180,255,0) 70%);
   bottom: -80px; right: 10%;
   animation: orbFloat1 24s ease-in-out infinite reverse, orbPulse 9s ease-in-out infinite 1.5s;
-}
-
-/* Make sure content sits above orbs */
-.container {
-  position: relative;
-  z-index: 1;
 }
 
 /* ── CONTAINER ── */
