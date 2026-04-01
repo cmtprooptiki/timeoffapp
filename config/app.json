@@ -1,12 +1,12 @@
 {
 "allow create new accounts": true,
-"send emails": true
+"send emails": true,
 "application sender email": "cmtproop@gmail.com",
 "email transporter": {
 "host": "smtp.gmail.com",
 "port": 465,
 "secure": true,
-"ignoreTLS": false
+"ignoreTLS": false,
 "auth": {
 	"user": "cmtproop@gmail.com",
 	"pass": "rgsq ybkn eedh ckrm"
