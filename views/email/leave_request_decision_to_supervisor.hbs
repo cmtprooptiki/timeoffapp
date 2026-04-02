@@ -4,6 +4,6 @@
 
 {{> email/leave_comments comments=comments }}
 
-<p>Μόλις επεξεργαστήκατε {{#if was_pended_revoke}}την ακύρωση του {{/if}}αιτήματος άδειας {{>leave_request_detail leave=leave }} για τον/την {{#with requester}}{{this.full_name}}{{/with}}: {{action}}.</p>
+<p>Μόλις επεξεργαστήκατε {{#if was_pended_revoke}}την ακύρωση του {{/if}}αιτήματος άδειας {{>leave_request_detail leave=leave }} για τον/την {{#with requester}}{{this.full_name}}{{/with}}: <strong>{{#if_equal action 'approve'}}Αποδοχή{{else}}Απόρριψη{{/if_equal}}</strong>.</p>
 
 <p>Ευχαριστούμε</p>
