@@ -16,7 +16,7 @@
         </div>
 
         <div class="form-group">
-          <label for="department_allowance_new" class="control-label">Επίδομα:</label>
+          <label for="department_allowance_new" class="control-label">Σύνολο Αδειών:</label>
           <select class="form-control" id="department_allowance_new" name="allowance__new">
             {{#each allowance_options}}
             <option value="{{value}}" {{#if_equal this.value 20}} selected="selected"{{/if_equal}}>{{caption}}</option>
@@ -31,7 +31,7 @@
 
         <div class="form-group">
           <input type="checkbox" id="department_is_accrued_allowance_new" name="is_accrued_allowance__new">&nbsp;
-          <label for="department_is_accrued_allowance_new" class="control-label">Σταδιακό επίδομα;</label>
+          <label for="department_is_accrued_allowance_new" class="control-label">Σταδιακή συγκέντρωση αδειών;</label>
         </div>
 
         <div class="form-group">

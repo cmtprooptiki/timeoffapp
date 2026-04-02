@@ -53,7 +53,7 @@
 
 
   <div class="form-group">
-    <label for="allowance_select">Επίδομα</label>
+    <label for="allowance_select">Σύνολο Αδειών</label>
 
     <select class="form-control" name="allowance" id="allowance_select">
         {{#each allowance_options}}
@@ -67,15 +67,15 @@
       <input class="" id="use_bank_holidays_inp" name="include_public_holidays" type="checkbox" {{# if department.include_public_holidays}} checked="checked"  {{/if}} >
       Συμπερίληψη αργιών
     </label>
-    <span class="help-block">Καθορίζει αν οι υπάλληλοι του {{department.name}} έχουν <a href="/settings/general"/>αργίες</a> επιπλέον του επιδόματός τους</span>
+    <span class="help-block">Καθορίζει αν οι υπάλληλοι του {{department.name}} έχουν <a href="/settings/general"/>αργίες</a> επιπλέον του Συνόλου Αδειών τους</span>
   </div>
 
   <div class="form-group">
     <label for="is_accrued_allowance_inp" class="control-label">
       <input class="" id="is_accrued_allowance_inp" name="is_accrued_allowance" type="checkbox" {{# if department.is_accrued_allowance}} checked="checked" {{/if}} >
-      Σταδιακό επίδομα
+      Σταδιακή συγκέντρωση αδειών
     </label>
-    <span class="help-block">Αν ενεργοποιηθεί, το επίδομα αδείας αρχίζει να συσσωρεύεται από την πρώτη μέρα εργασίας, ανάλογα με την ετήσια δικαιούχο. Π.χ. υπάλληλος στον ένατο μήνα εργασίας θα έχει συγκεντρώσει 9/12 του ετήσιου επιδόματος.</span>
+    <span class="help-block">Αν ενεργοποιηθεί, το Σύνολο Αδειών αρχίζει να συσσωρεύεται από την πρώτη μέρα εργασίας, ανάλογα με την ετήσια δικαιούχο. Π.χ. υπάλληλος στον ένατο μήνα εργασίας θα έχει συγκεντρώσει 9/12 του ετήσιου Συνόλου Αδειών.</span>
   </div>
 </div>
 

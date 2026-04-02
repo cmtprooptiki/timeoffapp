@@ -1191,8 +1191,7 @@ div.month_container {
   color: var(--text-muted) !important;
   font-size: 11px !important;
   font-weight: 700 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.6px !important;
+  letter-spacing: 0.3px !important;
   padding: 14px 16px !important;
 }
 

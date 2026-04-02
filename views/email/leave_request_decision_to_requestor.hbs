@@ -4,6 +4,6 @@
 
 {{> email/leave_comments comments=comments }}
 
-<p>Ο/Η {{#with approver }}{{this.full_name}}{{/with}} αποφάσισε να <strong>{{#if_equal action 'approve'}}αποδεχθεί{{else}}απορρίψει{{/if_equal}}</strong> {{#if was_pended_revoke}}την ακύρωση της {{/if}}αίτησής σας για άδεια <strong>{{>leave_request_detail leave=leave }}</strong>.</p>
+<p>Ο/Η {{#with approver }}{{this.full_name}}{{/with}} αποφάσισε να <strong>{{#if_equal action 'approve'}}αποδεχθεί{{else}}απορρίψει{{/if_equal}}</strong> {{#if was_pended_revoke}}την ακύρωση της {{else}}την {{/if}}αίτησής σας για άδεια <strong>{{>leave_request_detail leave=leave }}</strong>.</p>
 
 <p>Ευχαριστούμε</p>
